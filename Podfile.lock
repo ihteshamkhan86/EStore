@@ -1,0 +1,38 @@
+PODS:
+  - Kingfisher (5.15.8):
+    - Kingfisher/Core (= 5.15.8)
+  - Kingfisher/Core (5.15.8)
+  - RxCocoa (6.5.0):
+    - RxRelay (= 6.5.0)
+    - RxSwift (= 6.5.0)
+  - RxKingfisher (2.1.0):
+    - Kingfisher (~> 5)
+    - RxCocoa (~> 6)
+    - RxSwift (~> 6)
+  - RxRelay (6.5.0):
+    - RxSwift (= 6.5.0)
+  - RxSwift (6.5.0)
+
+DEPENDENCIES:
+  - RxCocoa
+  - RxKingfisher
+  - RxSwift
+
+SPEC REPOS:
+  trunk:
+    - Kingfisher
+    - RxCocoa
+    - RxKingfisher
+    - RxRelay
+    - RxSwift
+
+SPEC CHECKSUMS:
+  Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
+  RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
+  RxKingfisher: a602fbf8751d756a7cc6190ddfedc2ce0d301377
+  RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+
+PODFILE CHECKSUM: 0a4302d4cc7ab2cc867b24f242054c791a155cdf
+
+COCOAPODS: 1.11.2

@@ -1,0 +1,6 @@
+framework module Pods_EStore_EStoreUITests {
+  umbrella header "Pods-EStore-EStoreUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
