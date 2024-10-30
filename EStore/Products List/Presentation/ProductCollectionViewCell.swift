@@ -7,6 +7,8 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var addToCartButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
+    
     private let disposeBag = DisposeBag()
     
     override func awakeFromNib() {
@@ -27,12 +29,19 @@ class ProductCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func bindViewModel<Observer>(viewModel: ProductCellVM,  at index: IndexPath, buttonClicked: Observer) where Observer: ObserverType, Observer.Element == IndexPath {
+    func bindViewModel<Observer>(viewModel: ProductCellVM,  at index: IndexPath, buttonClicked: Observer, share: Observer) where Observer: ObserverType, Observer.Element == IndexPath {
         addToCartButton.rx.tap
             .map {
                 index
             }
             .bind(to: buttonClicked)
+            .disposed(by: disposeBag)
+        
+        shareButton.rx.tap
+            .map {
+                index
+            }
+            .bind(to: share)
             .disposed(by: disposeBag)
         
         bind(viewModel: viewModel)

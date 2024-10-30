@@ -15,11 +15,13 @@ class ProductsListVM {
     struct UIInputs {
         let didSelectItem: Observable<IndexPath>
         let addToCart: Observable<IndexPath>
+        let share: Observable<IndexPath>
     }
     
     let products: Observable<[ProductCellVM]>
     let selectedProduct: Observable<Product>
     let addToCart: Observable<Product>
+    let shareTap: Observable<Product>
     
     init(inputs: UIInputs,
          getProductsService: GetProductsService) {
@@ -51,5 +53,16 @@ class ProductsListVM {
                 }
                 return products[index.row]
             }
+        
+        self.shareTap = inputs.share
+            .withLatestFrom(productsList) { index, products in
+                (index, products)
+            }
+            .compactMap({ index, products -> Product? in
+                guard index.row < products.count else {
+                    return nil
+                }
+                return products[index.row]
+            })
     }
 }

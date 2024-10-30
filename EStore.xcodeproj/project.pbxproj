@@ -35,6 +35,8 @@
 		857231372CBE2FE400016F69 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857231352CBE2FE400016F69 /* ProductCollectionViewCell.xib */; };
 		8572313A2CBE7A0E00016F69 /* ShoppingCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857231382CBE7A0E00016F69 /* ShoppingCartTableViewCell.swift */; };
 		8572313B2CBE7A0E00016F69 /* ShoppingCartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857231392CBE7A0E00016F69 /* ShoppingCartTableViewCell.xib */; };
+		85933A652CD2844900BE565C /* ProductDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85933A632CD2844900BE565C /* ProductDetailsVC.swift */; };
+		85933A662CD2844900BE565C /* ProductDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85933A642CD2844900BE565C /* ProductDetailsVC.xib */; };
 		CC2AB60503E0958A5050CE0C /* Pods_EStoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2B28385A6D106D1F864FE4 /* Pods_EStoreTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +95,8 @@
 		857231352CBE2FE400016F69 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		857231382CBE7A0E00016F69 /* ShoppingCartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartTableViewCell.swift; sourceTree = "<group>"; };
 		857231392CBE7A0E00016F69 /* ShoppingCartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingCartTableViewCell.xib; sourceTree = "<group>"; };
+		85933A632CD2844900BE565C /* ProductDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsVC.swift; sourceTree = "<group>"; };
+		85933A642CD2844900BE565C /* ProductDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailsVC.xib; sourceTree = "<group>"; };
 		D1ACAFA3D8CD6A3ECF3E66E6 /* Pods-EStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EStore.debug.xcconfig"; path = "Target Support Files/Pods-EStore/Pods-EStore.debug.xcconfig"; sourceTree = "<group>"; };
 		FC0165D36CF90B5ABA76D194 /* Pods_EStore_EStoreUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EStore_EStoreUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -160,6 +164,7 @@
 		857230D72CBE218400016F69 /* EStore */ = {
 			isa = PBXGroup;
 			children = (
+				85933A612CD2842800BE565C /* Product Details */,
 				857231202CBE259800016F69 /* Resources */,
 				8572311C2CBE242E00016F69 /* Common */,
 				857231252CBE25E000016F69 /* Home */,
@@ -283,6 +288,23 @@
 				857231322CBE2B8100016F69 /* GetProductsService.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		85933A612CD2842800BE565C /* Product Details */ = {
+			isa = PBXGroup;
+			children = (
+				85933A622CD2843000BE565C /* Presentation */,
+			);
+			path = "Product Details";
+			sourceTree = "<group>";
+		};
+		85933A622CD2843000BE565C /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				85933A632CD2844900BE565C /* ProductDetailsVC.swift */,
+				85933A642CD2844900BE565C /* ProductDetailsVC.xib */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		FAC4A35770C4FA7B0EB08EB0 /* Pods */ = {
@@ -412,6 +434,7 @@
 				857231372CBE2FE400016F69 /* ProductCollectionViewCell.xib in Resources */,
 				857230E52CBE218600016F69 /* LaunchScreen.storyboard in Resources */,
 				8572313B2CBE7A0E00016F69 /* ShoppingCartTableViewCell.xib in Resources */,
+				85933A662CD2844900BE565C /* ProductDetailsVC.xib in Resources */,
 				857230E22CBE218600016F69 /* Assets.xcassets in Resources */,
 				857231172CBE23D900016F69 /* ShoppingCartVC.xib in Resources */,
 			);
@@ -541,6 +564,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85933A652CD2844900BE565C /* ProductDetailsVC.swift in Sources */,
 				857231332CBE2B8100016F69 /* GetProductsService.swift in Sources */,
 				8572310C2CBE238B00016F69 /* ProductsListVC.swift in Sources */,
 				8572311B2CBE23ED00016F69 /* ShoppingCartCoordinator.swift in Sources */,
@@ -733,6 +757,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -761,6 +786,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

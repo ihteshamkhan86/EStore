@@ -15,9 +15,10 @@ class ProductsListVC: UIViewController {
         
         let didSelectItem = collectionView.rx.itemSelected.asObservable()
         let addToCart = PublishSubject<IndexPath>()
-        let inputs = ProductsListVM.UIInputs(didSelectItem: didSelectItem, addToCart: addToCart.asObservable())
+        let share = PublishSubject<IndexPath>()
+        let inputs = ProductsListVM.UIInputs(didSelectItem: didSelectItem, addToCart: addToCart.asObservable(), share: share.asObservable())
         let vm = viewModelFactory(inputs)
-        bind(viewModel: vm, addToCart: addToCart)
+        bind(viewModel: vm, addToCart: addToCart, share: share)
     }
     
     override func viewDidLayoutSubviews() {
@@ -46,11 +47,11 @@ class ProductsListVC: UIViewController {
         layout.itemSize = CGSize(width: width, height: width)
     }
     
-    private func bind(viewModel: ProductsListVM, addToCart: PublishSubject<IndexPath>) {
+    private func bind(viewModel: ProductsListVM, addToCart: PublishSubject<IndexPath>, share: PublishSubject<IndexPath>) {
         viewModel.products
             .bind(to: collectionView.rx.items(cellIdentifier: "product", cellType: ProductCollectionViewCell.self)) { index, product,  cell in
                 
-                cell.bindViewModel(viewModel: product, at: IndexPath(row: index, section: 0), buttonClicked: addToCart.asObserver())
+                cell.bindViewModel(viewModel: product, at: IndexPath(row: index, section: 0), buttonClicked: addToCart.asObserver(), share: share.asObserver())
                    
             }
             .disposed(by: disposeBag)

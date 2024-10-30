@@ -1,13 +1,19 @@
 import Foundation
 import RxSwift
+import UIKit
 
 class HomeCoordinator {
     private let disposeBag = DisposeBag()
-    func start() -> HomeVC {
+    
+    // Temp
+    private let navController: UINavigationController = UINavigationController()
+    func start() -> UINavigationController {
         let vc = HomeVC()
         
         addChildControllers(to: vc)
-        return vc
+        
+        navController.addChild(vc)
+        return navController
     }
     
     private func addChildControllers(to viewController: HomeVC)  {
@@ -42,7 +48,38 @@ class HomeCoordinator {
         viewModel
             .selectedProduct
             .debug("selected product")
-            .subscribe()
+            .asDriver(onErrorRecover: { error in
+            .empty()
+            })
+            .drive(onNext: { [weak self ]product in
+                self?.showAlertFor(product: product)
+            })
             .disposed(by: disposeBag)
+        
+        viewModel.shareTap
+            .asDriver { error in
+            .empty()
+            }
+            .drive(onNext: { [weak self] product in
+                self?.showShareSheet(for: product)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func showAlertFor(product: Product) {
+        let vc = ProductDetailsVC(product: product)
+            
+        navController.pushViewController(vc, animated: true)
+    }
+    
+    private func showShareSheet(for product: Product) {
+        let title = product.title
+        let details = product.description
+        let price = "$ " + product.price.description
+        
+        let array = [title, details, price]
+        let activity = UIActivityViewController(activityItems: array, applicationActivities: nil)
+        
+        navController.present(activity, animated: true, completion: nil)
     }
 }
